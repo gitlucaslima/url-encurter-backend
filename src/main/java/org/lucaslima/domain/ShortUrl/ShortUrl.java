@@ -6,7 +6,7 @@ import org.bson.types.ObjectId;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@MongoEntity(collection = "short_urls")
+@MongoEntity(collection = "url-collection")
 public class ShortUrl implements Serializable {
 
     public ObjectId id;
@@ -15,7 +15,6 @@ public class ShortUrl implements Serializable {
     public String shortUrl;
     public LocalDateTime createdAt;
     public LocalDateTime updatedAt;
-
 
     public ObjectId getId() {
         return id;

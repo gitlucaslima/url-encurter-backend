@@ -1,6 +1,6 @@
 # url-encoder-backend
 
-[![Build Status](https://travis-ci.com/gitlucaslima/url-encoder-backend.svg?branch=main)](https://travis-ci.com/gitlucaslima/url-encoder-backend)
+[![Build Status](https://travis-ci.com/gitlucaslima/url-encoder-backend.svg?branch=main)](https://travis-ci.com/SEU_USUARIO/url-encoder-backend)
 [![License](https://img.shields.io/github/license/SEU_USUARIO/url-encoder-backend)](LICENSE)
 
 Uma API reativa para encurtamento e redirecionamento de URLs. Desenvolvida com **Quarkus** e **MongoDB**, essa aplicação oferece uma maneira eficiente de criar links curtos e gerenciar suas informações via API RESTful.

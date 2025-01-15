@@ -1,6 +1,6 @@
 # MongoDB
-quarkus.mongodb.connection-string=${QUARKUS_MONGODB_URI}
-quarkus.mongodb.database=${QUARKUS_MONGODB_DATABASE}
+quarkus.mongodb.connection-string=mongodb://admin:password@localhost:27017/url-shortener
+quarkus.mongodb.database=url-shortener
 
 # Server Config
 quarkus.http.port=8080

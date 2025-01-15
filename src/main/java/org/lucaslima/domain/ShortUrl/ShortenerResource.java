@@ -19,7 +19,7 @@ public class ShortenerResource{
     ShortenerService service;
 
     @POST
-    public Uni<ResponseShortUrlDto> shortenUrl(RequestShortUrlDto request) {
+    public Uni<ResponseShortUrlDto> encode(RequestShortUrlDto request) {
         return service.createShortUrl(request.getOriginalUrl())
                 .map(shortUrl -> new ResponseShortUrlDto(shortUrl.originalUrl, shortUrl.shortCode, shortUrl.shortUrl));
     }
@@ -32,7 +32,7 @@ public class ShortenerResource{
 
     @GET
     @Path("/info/{shortCode}")
-    public Uni<Response> info(@PathParam("shortCode") String shortCode) {
+    public Uni<Response> infoUrl(@PathParam("shortCode") String shortCode) {
         return service.findByShortCode(shortCode)
                 .onItem().ifNotNull().transform(url -> Response.ok(url).build())
                 .onItem().ifNull().continueWith(() -> Response.status(Response.Status.NOT_FOUND).build());

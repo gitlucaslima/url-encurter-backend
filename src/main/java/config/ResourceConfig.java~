@@ -23,6 +23,6 @@ public class ResourceConfig {
         //pegar porta em que esta rodando
         String port = ConfigProvider.getConfig().getValue("quarkus.http.port", String.class);
 
-        return Uni.createFrom().item("Quarkus UP and Running! - "+mongodbUri+" - "+mongodbDatabase+"port: "+port);
+        return Uni.createFrom().item("Quarkus UP and Running! - "+mongodbUri+" - "+mongodbUri+" - "+mongodbDatabase+"port: "+port);
     }
 }
