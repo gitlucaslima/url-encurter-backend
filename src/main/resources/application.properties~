@@ -1,9 +1,0 @@
-# MongoDB
-quarkus.mongodb.connection-string=mongodb://admin:password@localhost:27017/url-shortener
-quarkus.mongodb.database=url-shortener
-
-# Server Config
-quarkus.http.port=8080
-
-# Namespace for short URL
-app.base.url.shorten=http://localhost:8080/shorten/
