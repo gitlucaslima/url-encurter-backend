@@ -61,6 +61,7 @@ public class ShortenerResource{
                     }
                 })
                 .onItem().ifNull().continueWith(() ->
+                        // Retorna 404 caso o código não seja encontrado
                         Response.status(Response.Status.NOT_FOUND)
                                 .entity("Short URL not found").build());
     }

@@ -19,10 +19,11 @@ public class ResourceConfig {
 
         String mongodbUri = ConfigProvider.getConfig().getValue("quarkus.mongodb.connection-string", String.class);
         String mongodbDatabase = ConfigProvider.getConfig().getValue("quarkus.mongodb.database", String.class);
+        String frontendUrl = ConfigProvider.getConfig().getValue("quarkus.http.cors.origins", String.class);
 
         //pegar porta em que esta rodando
         String port = ConfigProvider.getConfig().getValue("quarkus.http.port", String.class);
 
-        return Uni.createFrom().item("Quarkus UP and Running! - "+mongodbUri+" - "+mongodbDatabase+"port: "+port);
+        return Uni.createFrom().item("Quarkus UP and Running! - "+mongodbUri+" - "+mongodbDatabase+"port: "+port+" - "+" Frontend: "+frontendUrl);
     }
 }

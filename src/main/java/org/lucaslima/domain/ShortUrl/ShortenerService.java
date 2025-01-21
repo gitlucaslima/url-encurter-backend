@@ -1,6 +1,5 @@
 package org.lucaslima.domain.ShortUrl;
 
-import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -41,21 +40,11 @@ public class ShortenerService {
     }
 
     public String generateShortUrl(String shortCode) {
-        return urlPrefix + shortCode;
+        return urlPrefix + "shorten/" + shortCode;
     }
 
-    public Uni<Response> resolveShortCode(String shortCode) {
-        return repository.findByShortCode(shortCode)
-                .onItem().ifNotNull().transform(url ->
-                        Response.status(Response.Status.FOUND)  // Código 302 (redirecionamento)
-                                .header("Location", url.getOriginalUrl())
-                                .build()
-                )
-                .onItem().ifNull().continueWith(
-                        Response.status(Response.Status.NOT_FOUND)
-                                .entity("Short URL not found")
-                                .build()
-                );
+    public Uni<ShortUrl> resolveShortCode(String shortCode) {
+        return repository.findByShortCode(shortCode);
     }
 
     public Uni<ShortUrl> findByShortCode(String shortCode) {
@@ -69,5 +58,13 @@ public class ShortenerService {
                         .build());
     }
 
+    public Uni<Response> delete(String shortCode) {
+        return repository.findByShortCode(shortCode)
+                .onItem().ifNotNull().transformToUni(url ->
+                        repository.delete(url)
+                                .onItem().transform(ignored -> Response.status(Response.Status.NO_CONTENT).build())
+                )
+                .onItem().ifNull().continueWith(() -> Response.status(Response.Status.NOT_FOUND).build());
+    }
 
 }

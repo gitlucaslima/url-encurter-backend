@@ -29,7 +29,7 @@ services:
     networks:
       - url-encoder-network
     environment:
-      FRONTEND_URL: "http://localhost:4200"
+      FRONTEND_URL: "http://localhost:4200/"
       QUARKUS_MONGODB_URI: "mongodb://admin:password@url-encoder-db:27017"
       QUARKUS_MONGODB_DATABASE: "url-shortener"
       QUARKUS_BASE_URL_SHORTEN: "http://localhost:8080/"

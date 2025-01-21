@@ -1,9 +1,19 @@
 package org.lucaslima.domain.ShortUrl;
 
+import java.time.LocalDateTime;
+
 public class ResponseShortUrlDto {
     public String originalUrl;
     public String shortCode;
     public String shortUrl;
+    public LocalDateTime createdAt;
+
+    public ResponseShortUrlDto(String originalUrl, String shortCode, String shortUrl, LocalDateTime createdAt) {
+        this.originalUrl = originalUrl;
+        this.shortCode = shortCode;
+        this.shortUrl = shortUrl;
+        this.createdAt = createdAt;
+    }
 
     public String getOriginalUrl() {
         return originalUrl;
@@ -21,11 +31,6 @@ public class ResponseShortUrlDto {
         this.shortCode = shortCode;
     }
 
-    public ResponseShortUrlDto(String originalUrl, String shortCode, String shortUrl) {
-        this.originalUrl = originalUrl;
-        this.shortCode = shortCode;
-        this.shortUrl = shortUrl;
-    }
 
     public ResponseShortUrlDto() {
     }
